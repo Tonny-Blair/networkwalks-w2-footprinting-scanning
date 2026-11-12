@@ -1,6 +1,8 @@
+<a id="top"></a>
+
 <div align="center">
 
-![Footprinting and Network Scanning: Penetration Testing Report, Week 2](assets/banner.png)
+![Footprinting and Network Scanning: Penetration Testing Report, Week 2](./banner.png)
 
 ![Kali Linux](https://img.shields.io/badge/Kali%20Linux-2026.3-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
 ![Nmap](https://img.shields.io/badge/Nmap-7.99-404040?style=for-the-badge)
@@ -105,7 +107,7 @@ All commands were run from a Kali Linux 2026.3 virtual machine. For Phase 2 the 
 whois networkwalks.com
 ```
 
-![WHOIS output for networkwalks.com](screenshots/01-whois.png)
+![WHOIS output for networkwalks.com](./01-whois.png)
 *Figure 1. WHOIS record for networkwalks.com.*
 
 **Observations**
@@ -126,7 +128,7 @@ whois networkwalks.com
 whatweb networkwalks.com
 ```
 
-![WhatWeb output for networkwalks.com](screenshots/02-whatweb.png)
+![WhatWeb output for networkwalks.com](./02-whatweb.png)
 *Figure 2. WhatWeb fingerprint of the site.*
 
 **Observations**
@@ -149,7 +151,7 @@ whatweb networkwalks.com
 nslookup networkwalks.com
 ```
 
-![nslookup output for networkwalks.com](screenshots/03-nslookup.png)
+![nslookup output for networkwalks.com](./03-nslookup.png)
 *Figure 3. DNS resolution through 8.8.8.8.*
 
 **Observations**
@@ -167,7 +169,7 @@ nslookup networkwalks.com
 curl -I https://networkwalks.com
 ```
 
-![curl header output for networkwalks.com](screenshots/04-curl.png)
+![curl header output for networkwalks.com](./04-curl.png)
 *Figure 4. HTTP response headers.*
 
 **Observations**
@@ -188,7 +190,7 @@ curl -I https://networkwalks.com
 wafw00f networkwalks.com
 ```
 
-![wafw00f output for networkwalks.com](screenshots/05-wafw00f.png)
+![wafw00f output for networkwalks.com](./05-wafw00f.png)
 *Figure 5. WAF detection result.*
 
 **Observations**
@@ -220,7 +222,7 @@ The `-sn` option means "host discovery only": Nmap checks which addresses answer
 
 The scan started at 17:02 (UTC−05:00) on 12 November 2026 and completed in **18.99 seconds**, checking **256 IP addresses** and finding **8 hosts up**.
 
-![Zenmap ping scan results](screenshots/07-zenmap-ping-scan.png)
+![Zenmap ping scan results](./07-zenmap-ping-scan.png)
 *Figure 6. Zenmap Nmap output (the last three bytes of each MAC address are redacted for privacy).*
 
 | IP address | Hostname | MAC prefix | Vendor | Latency | Note |
@@ -244,7 +246,7 @@ The scan started at 17:02 (UTC−05:00) on 12 November 2026 and completed in **1
 
 I opened the **Topology** tab, enabled the legend, and used **Save Graphic** to export the diagram. The scanning machine sits at the centre as `localhost`, with the eight discovered hosts around it.
 
-![Zenmap network topology](screenshots/08-zenmap-topology.png)
+![Zenmap network topology](./08-zenmap-topology.png)
 *Figure 7. Zenmap topology of 192.168.1.0/24.*
 
 **Why it matters:** host discovery is the first step of internal reconnaissance. An attacker uses the list to decide which hosts to examine next. A defender runs the same scan to confirm that only expected devices are on the network.
@@ -310,24 +312,38 @@ Times are in the VM's local time (UTC−05:00).
 
 ## Repository structure
 
+The report images are stored alongside `README.md` in the repository root. The paths above are relative to this location.
+
 ```
 .
 ├── README.md
-├── assets/
-│   └── banner.png
-├── screenshots/
-│   ├── 01-whois.png
-│   ├── 02-whatweb.png
-│   ├── 03-nslookup.png
-│   ├── 04-curl.png
-│   ├── 05-wafw00f.png
-│   ├── 07-zenmap-ping-scan.png
-│   └── 08-zenmap-topology.png
-└── tools/                      # optional helper scripts
+├── banner.png
+├── 01-whois.png
+├── 02-whatweb.png
+├── 03-nslookup.png
+├── 04-curl.png
+├── 05-wafw00f.png
+├── 07-zenmap-ping-scan.png
+├── 08-zenmap-topology.png
+├── check-images.sh
+├── frame_screenshot.py
+└── dnsrecon-snippet.md       # optional working note; not used to render this report
 ```
+
+---
 
 ## Author
 
-**Karibwende Blair** · [LinkedIn](https://www.linkedin.com/in/karibwende-blair-088012287)
+<div align="center">
 
-<sub>Educational use only. Activities were limited to systems I own or was authorized in writing to test.</sub>
+### Karibwende Blair
+
+**Networkwalks Cybersecurity Internship** · W2-PM-FINAL
+
+[![LinkedIn](https://img.shields.io/badge/Connect_on-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/karibwende-blair-088012287)
+
+[Back to top ↑](#top)
+
+<sub>Educational report. Testing was limited to systems owned by the author or explicitly authorised in writing.</sub>
+
+</div>
